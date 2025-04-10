@@ -16,18 +16,25 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createProduct(@RequestBody ProductRequest productRequest)
     {
 
         productService.createProduct(productRequest);
     }
-    @GetMapping
+    @GetMapping("/get")
     @ResponseStatus(HttpStatus.OK)
     public List<ProductResponse> getAllProducts()
     {
        return productService.getAllProduct();
+
+    }
+    @GetMapping("/response")
+    @ResponseStatus(HttpStatus.OK)
+    public String getAllProducts1()
+    {
+        return "response from product-service";
 
     }
 }
