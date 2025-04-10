@@ -1,6 +1,7 @@
 package com.productcnit.inventoryservice.service;
 
 import com.productcnit.inventoryservice.dto.InventoryResponse;
+import com.productcnit.inventoryservice.model.Inventory;
 import com.productcnit.inventoryservice.repository.InventoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +28,9 @@ public class InventoryService {
 //}
     public List<InventoryResponse> isInStock(List<String> skuCode)
     {
+        log.info("Checking stock for SKU codes: {}", skuCode);
+        Optional<Inventory> inventories = inventoryRepository.findBySkuCodeIn(skuCode);
+        log.info("Found inventories: {}", inventories);
         // for making the system slow so that we can simulate the timelimiter from circuitbreaker library
 //        log.info("wait started");
 //        Thread.sleep(10000);

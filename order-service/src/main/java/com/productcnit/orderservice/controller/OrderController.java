@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class OrderController {
 
     private final OrderService orderService;
-    @PostMapping
+    @PostMapping("/placeOrder")
     @ResponseStatus(HttpStatus.CREATED)
     @CircuitBreaker(name = "inventory",fallbackMethod = "fallbackMethod") // the name is the same as the one in the properties so inventory
     @TimeLimiter(name="inventory")
@@ -50,5 +50,13 @@ public class OrderController {
     public CompletableFuture<String> fallbackMethod(OrderRequest orderRequest, RuntimeException runtimeException)
     {
         return CompletableFuture.supplyAsync(()->" Oops something went wrong please order later") ;
+    }
+
+    @GetMapping("/response")
+    @ResponseStatus(HttpStatus.OK)
+    public String getAllProducts1()
+    {
+        return "response from order-service";
+
     }
 }

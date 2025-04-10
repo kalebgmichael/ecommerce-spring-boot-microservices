@@ -16,7 +16,7 @@ public class InventoryController {
 
     private final InventoryService inventoryService;
 
-    @GetMapping
+    @GetMapping("/check")
     @ResponseStatus(HttpStatus.OK)
 
     // http://localhost:8082/api/inventory/iphone-13,iphone13-red
