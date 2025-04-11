@@ -31,12 +31,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: mysql_user
-                  name: order-mysql-secrets
+                  name: mysql-secrets
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: mysql_password
-                  name: order-mysql-secrets
+                  name: mysql-secrets
             - name: MANAGEMENT_ZIPKIN_TRACING_ENDPOINT
               valueFrom:
                 configMapKeyRef:
@@ -66,11 +66,4 @@ metadata:
   name: order-service-config
 data:
   SPRING_DATASOURCE_URL: "jdbc:mysql://mysql.default.svc.cluster.local:3306/order_service"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: order-mysql-secrets
-stringData:
-  mysql_user: order_user
-  mysql_password: order_pass
+

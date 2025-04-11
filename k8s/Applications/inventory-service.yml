@@ -26,12 +26,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: mysql_user
-                  name: inventory-mysql-secrets
+                  name: mysql-secrets
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   key: mysql_password
-                  name: inventory-mysql-secrets
+                  name: mysql-secrets
             - name: EUREKA_SERVER_ADDRESS
               valueFrom:
                 configMapKeyRef:
@@ -61,12 +61,4 @@ metadata:
   name: inventory-service-config
 data:
   SPRING_DATASOURCE_URL: "jdbc:mysql://mysql.default.svc.cluster.local:3306/inventory_service"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: inventory-mysql-secrets
-stringData:
-  mysql_user: order_user
-  mysql_password: order_pass
 

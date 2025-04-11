@@ -19,7 +19,3 @@ O
 api-gateway/api-gateway (1).iml,2/c/2c2bf820fba063a87cd2b6bde27d34ad0fe437b6
 ~
 Nproduct-service/src/main/java/com/productcnit/product/service/Application.java,6/1/6152afc8a069fd95463c507d50862d3220bf6f05
-B
-docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
-N
-k8s/infrastructure/mongodb.yml,a/1/a1ad08b3b4ee21d1ed7ca408aade890afba3f8d1

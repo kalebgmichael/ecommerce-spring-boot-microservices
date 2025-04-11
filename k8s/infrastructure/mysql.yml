@@ -25,6 +25,8 @@ spec:
                 secretKeyRef:
                   key: mysql_root_password
                   name: mysql-secrets
+            - name: MYSQL_ROOT_HOST
+              value: "%"
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
@@ -55,10 +57,12 @@ metadata:
     app: mysql
   name: mysql
 spec:
+  type: NodePort
   ports:
     - port: 3306
       protocol: TCP
       targetPort: 3306
+      nodePort: 30006
   selector:
     app: mysql
 ---
@@ -67,9 +71,9 @@ kind: Secret
 metadata:
   name: mysql-secrets
 stringData:
-  mysql_root_password: mysql
-  mysql_user: order_user
-  mysql_password: order_pass
+  mysql_root_password: root
+  mysql_user: root
+  mysql_password: root
 
 ---
 apiVersion: v1
@@ -103,6 +107,7 @@ metadata:
   name: mysql-initdb-config
 data:
   initdb.sql: |
+    ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
     CREATE DATABASE IF NOT EXISTS order_service;
     CREATE DATABASE IF NOT EXISTS inventory_service;
     
