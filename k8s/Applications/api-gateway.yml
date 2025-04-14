@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: cloud-gateway-app
-          image: kalebgmac1/ecommerce-spring-boot-microservices-api-gateway:new3
+          image: kalebgmac1/ecommerce-spring-boot-microservices-api-gateway:new8
           ports:
             - containerPort: 8282
           env:

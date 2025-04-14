@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: eureka
-          image: kalebgmac1/ecommerce-spring-boot-microservices-discovery-server:new3
+          image: kalebgmac1/ecommerce-spring-boot-microservices-discovery-server:new7
           ports:
             - containerPort: 8761
 

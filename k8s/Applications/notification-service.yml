@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: notification-service
-          image: kalebgmac1/ecommerce-spring-boot-microservices-notification-service:new3
+          image: kalebgmac1/ecommerce-spring-boot-microservices-notification-service:new7
           env:
             - name: SPRING_KAFKA_BOOTSTRAP_SERVERS
               valueFrom:

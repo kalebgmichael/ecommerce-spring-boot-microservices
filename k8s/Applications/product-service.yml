@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: product-service
-          image: kalebgmac1/ecommerce-spring-boot-microservices-product-service:new3
+          image: kalebgmac1/ecommerce-spring-boot-microservices-product-service:new7
           env:
             - name: SPRING_DATA_MONGODB_URI
               valueFrom:
@@ -32,10 +32,6 @@ spec:
                   key: MONGO_INITDB_ROOT_PASSWORD
                   name: mongodb-secrets
             - name: MONGO_INITDB_DATABASE
-              valueFrom:
-                configMapKeyRef:
-                  key: MONGO_INITDB_DATABASE
-                  name: mongodb-config
             - name: MANAGEMENT_ZIPKIN_TRACING_ENDPOINT
               valueFrom:
                 configMapKeyRef:
